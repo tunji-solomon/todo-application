@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="todo.js"></script>
+    <link rel="stylesheet" href="todo.css">
+  </head>
+  <body>
+    <h3 class="todo-header">TODO APPLICATION</h3>
+    <div class="fields-container">
+    <input type="text" name="" placeholder="Todo name" class="js-todo-name-input todo-name-input">
+    <input type="date" class="js-todo-date-input todo-date-input">
+    <button class="js-todo-add-btn todo-add-btn" onclick="
+    addTodo()">Add</button>
+    </div>
+    <p class="error-message"></p>
+    <table class="todo-table">
+        <th class="table-head first-column">Todo</th>
+        <th class="table-head">Date</th>
+        <th class="table-head">Action</th>
+      <tbody class="table-body">
+      </tbody>
+    </table>
+    <div class="js-todo-list-container todo-list-container"></div>
+    
+  </body>
+</html>
