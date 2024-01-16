@@ -1,0 +1,74 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.todo-header{
+  margin-left : 400px;
+  margin-bottom: 50px;
+}
+
+.fields-container{
+  margin-bottom: 50px;
+}
+.todo-name-input,
+.todo-date-input,
+.todo-add-btn{
+  padding: 10px;
+  width: 200px;
+  font-size: 21;
+  border: 1px solid whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0px 3px 2px rgba(150, 150, 150, 0.2);
+}
+
+.todo-add-btn,
+.todo-delete-btn{
+  background-color: rgb(71, 152, 244);
+  color: white;
+  box-shadow: none;
+  font-weight: bold;
+  border: none;
+  padding: 11px;
+  transition: opacity 0.25s;
+
+}
+.todo-add-btn:hover,
+.todo-delete-btn:hover{
+  opacity: 0.8;
+}
+.todo-add-btn:active,
+.todo-delete-btn:active{
+  opacity: 0.6;
+}
+.todo-list-container{
+  font-size: 23px;
+}
+.todo-delete-btn{
+  background-color: rgb(246, 82, 82);
+  border-radius: 5px;
+  padding: 11px;
+  margin-top: 10px;
+
+}
+
+.todo-table{
+  padding-left: 20px;
+  border-collapse: collapse;
+  font-size: 14px;
+
+}
+.table-head{
+  color: black;
+  border-bottom: 2px solid rgba(150, 150, 150, 1);
+  padding-left: 300px;
+}
+.first-column{
+  padding-left: 10px;
+}
+.table-data{
+  margin-left: 300px;
+}
+.table-middle-data{
+  padding-left: 300px;
+}
