@@ -1,7 +1,7 @@
-const todoList = [];
-console.log(todoList);
+const todoList = JSON.parse(localStorage.getItem('my_todo_list')) || [];
 
 renderTodoList();
+
 
 // function to render the list to html
 function renderTodoList(){
@@ -27,8 +27,9 @@ function renderTodoList(){
     </tr> 
     `;
     todoHtml += html;
+    document.querySelector('.table-body').innerHTML = todoHtml;
   };
-  document.querySelector('.table-body').innerHTML = todoHtml;
+
 
 }
 // function to add todo to list
@@ -49,7 +50,10 @@ function addTodo () {
   todoInputElement.value = '';
   todoDateElement.value = '';
   renderTodoList();
+
 }
+localStorage.setItem('my_todo_list', JSON.stringify(todoList))
+
 
 
 
