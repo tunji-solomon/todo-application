@@ -62,5 +62,9 @@ body{
 .todo-name{
   font-weight: bold;
 }
+.todo-empty-message{
+  font-size: 25px;
+  font-weight: bold;
+}
 
 

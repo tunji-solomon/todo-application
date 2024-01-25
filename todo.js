@@ -27,7 +27,7 @@ function renderTodoList(){
   if (todoList.length > 0){
     document.querySelector('.todo-list-container').innerHTML = todoHtml;
   }else if (todoList.length ===0){
-    document.querySelector('.todo-list-container').innerHTML = '';
+    document.querySelector('.todo-list-container').innerHTML = `<p class = 'todo-empty-message'> No todo yet... </p>`;
 
   }
   localStorage.setItem('my_todo_list', JSON.stringify(todoList))
