@@ -4,7 +4,7 @@ body{
 }
 
 .todo-header{
-  margin-left : 400px;
+  margin-left : 250px;
   margin-bottom: 50px;
 }
 
@@ -42,33 +42,25 @@ body{
   opacity: 0.6;
 }
 .todo-list-container{
-  font-size: 23px;
+  display: grid;
+  grid-template-columns: 250px 200px 150px;
+  font-size: 15px;
+  grid-gap: 20px;
+  align-items: center;
+  margin-left: 10px;
 }
 .todo-delete-btn{
   background-color: rgb(246, 82, 82);
   border-radius: 5px;
-  padding: 11px;
-  margin-top: 10px;
+  margin-left: 50px;
 
 }
+.todo-name-input{
+  margin-left: 10px;
+}
 
-.todo-table{
-  padding-left: 20px;
-  border-collapse: collapse;
-  font-size: 14px;
+.todo-name{
+  font-weight: bold;
+}
 
-}
-.table-head{
-  color: black;
-  border-bottom: 2px solid rgba(150, 150, 150, 1);
-  padding-left: 300px;
-}
-.first-column{
-  padding-left: 10px;
-}
-.table-data{
-  margin-left: 300px;
-}
-.table-middle-data{
-  padding-left: 300px;
-}
+

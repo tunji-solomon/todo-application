@@ -8,34 +8,37 @@ function renderTodoList(){
   let todoHtml = '';
   for(let i = 0; i < todoList.length; i++){
     const todoObject = todoList[i];
-    const name = todoObject.name;
+    const name =todoObject.name;
     const date = todoObject.date;
     const html = `
-    <tr>
-    <td class='first-column'>
+    <div class='todo-name'>
       ${name}
-    </td>
-    <td class='table-middle-data'>
+    </div>
+    <div>
       ${date}
-    </td>
-    <td>
-    <button class='todo-delete-btn table-data' onclick='
-    todoList.splice(${i}, 1);
+    </div>
+    <button class='todo-delete-btn' onclick='
+    todoList.splice(${i}, Number(1));
     renderTodoList();
     '>Delete</button>
-    </td>
-    </tr> 
     `;
     todoHtml += html;
-    document.querySelector('.table-body').innerHTML = todoHtml;
   };
+  if (todoList.length > 0){
+    document.querySelector('.todo-list-container').innerHTML = todoHtml;
+  }else if (todoList.length ===0){
+    document.querySelector('.todo-list-container').innerHTML = '';
+
+  }
+  localStorage.setItem('my_todo_list', JSON.stringify(todoList))
 
 
 }
 // function to add todo to list
 function addTodo () {
+
   const todoInputElement = document.querySelector('.js-todo-name-input');
-  const todoName = todoInputElement.value;
+  const todoName = todoInputElement.value[0].toUpperCase() + todoInputElement.value.substr(1);
   const todoDateElement = document.querySelector('.js-todo-date-input');
   const todoDate = todoDateElement.value;
   if(todoInputElement.value && todoDateElement.value !== '' ){
@@ -51,8 +54,10 @@ function addTodo () {
   todoDateElement.value = '';
   renderTodoList();
 
+
+
 }
-localStorage.setItem('my_todo_list', JSON.stringify(todoList))
+
 
 
 
