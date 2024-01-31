@@ -58,6 +58,21 @@ function addTodo () {
 
 }
 
+document.body.addEventListener('load', () => {
+  renderTodoList();
+})
+
+document.querySelector('.js-todo-add-btn')
+.addEventListener('click', () => {
+  addTodo();
+})
+
+document.body.addEventListener('keydown', (event) => {
+  if(event.key === 'Enter'){
+    addTodo();
+  }
+})
+
 
 
 
