@@ -6,11 +6,12 @@ renderTodoList();
 // function to render the list to html
 function renderTodoList(){
   let todoHtml = '';
-  for(let i = 0; i < todoList.length; i++){
+  for(let i = 0;i < todoList.length; i++){
     const todoObject = todoList[i];
     const name =todoObject.name;
     const date = todoObject.date;
     const html = `
+    <div class='todo-row ${name}'>
     <div class='todo-name'>
       ${name}
     </div>
@@ -18,10 +19,12 @@ function renderTodoList(){
       ${date}
     </div>
     <button class='todo-delete-btn' onclick='
-    todoList.splice(${i}, Number(1));
+    todoList.splice(${i}, 1);
     renderTodoList();
     '>Delete</button>
+    </div>
     `;
+
     todoHtml += html;
   };
   if (todoList.length > 0){
@@ -30,7 +33,9 @@ function renderTodoList(){
     document.querySelector('.todo-list-container').innerHTML = `<p class = 'todo-empty-message'> No todo yet... </p>`;
 
   }
-  localStorage.setItem('my_todo_list', JSON.stringify(todoList))
+  backgroundColor();
+  buttonColor();
+  localStorage.setItem('my_todo_list', JSON.stringify(todoList));
 
 
 }
@@ -72,6 +77,49 @@ document.body.addEventListener('keydown', (event) => {
     addTodo();
   }
 })
+
+function todoChecked(name){
+  document.querySelectorAll(`.todo-row`).forEach((element) => {
+    if(element.classList.contains(String(name))){
+      element.classList.add('todo-row-checked')
+    }
+})}
+
+
+function backgroundColor(){
+    let i = 0;
+    while (i < todoList.length){
+      document.querySelectorAll('.todo-row').forEach(element => {
+      if(i % 2 === 0){
+        element.classList.add('todo-row-even');
+        i++;
+      }else{
+        element.classList.add('todo-row-odd');
+        i++;
+      }
+    }
+  )}
+
+}
+
+function buttonColor(){
+  let i = 0;
+  while (i < todoList.length){
+    document.querySelectorAll('.todo-delete-btn').forEach(element => {
+    if(i % 2 === 0){
+      element.classList.add('todo-delete-btn-even');
+      i++;
+    }else{
+      element.classList.add('todo-delete-btn-odd');
+      i++;
+    }
+  }
+)}
+}
+
+
+
+
 
 
 

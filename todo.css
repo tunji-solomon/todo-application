@@ -2,15 +2,19 @@ body{
   font-family: Arial, Helvetica, sans-serif;
 
 }
+.todo-container{
+  display: flex;
+  flex-direction: column;
+  max-width: 650px;
+
+}
 
 .todo-header{
-  margin-left : 250px;
   margin-bottom: 50px;
+  text-align: center;
 }
 
-.fields-container{
-  margin-bottom: 50px;
-}
+
 .todo-name-input,
 .todo-date-input,
 .todo-add-btn{
@@ -41,18 +45,57 @@ body{
 .todo-delete-btn:active{
   opacity: 0.6;
 }
-.todo-list-container{
+.todo-list-container,
+.fields-container{
+  display: flex;
+  max-width: 650px;
+  min-width: 350px;
+  flex-direction: column;
+}
+
+.fields-container{
+  margin-bottom: 50px;
+  flex-direction: row;
+}
+.todo-row{
   display: grid;
-  grid-template-columns: 250px 200px 150px;
+  grid-template-columns: 1fr 1fr 1fr;
   font-size: 15px;
   grid-gap: 20px;
   align-items: center;
   margin-left: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
 }
-.todo-delete-btn{
+
+.todo-row-odd{
+  background-color: rgb(219, 208, 208)
+}
+.todo-row-even{
+  background-color: pink;
+}
+
+
+.todo-row-checked{
+  background-color: rgb(34, 100, 34);
+  color: white;
+}
+.todo-date{
+  max-width: 200px;
+  min-width: 20px;
+
+}
+.todo-delete-btn-odd,
+.todo-delete-btn-even{
   background-color: rgb(246, 82, 82);
   border-radius: 5px;
-  margin-left: 50px;
+  max-width: 200px;
+  min-width: 140px;
+
+}
+.todo-delete-btn-odd{
+  background-color: grey;
 
 }
 .todo-name-input{
@@ -61,6 +104,8 @@ body{
 
 .todo-name{
   font-weight: bold;
+  width: 170px;
+  margin-left: 10px;
 }
 .todo-empty-message{
   font-size: 25px;
