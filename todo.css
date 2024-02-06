@@ -96,6 +96,9 @@ body{
   min-width: 75px;
 
 }
+.todo-check-btn{
+  font-size: 12px;
+}
 
 .todo-row-odd{
   background-color: rgb(219, 208, 208);
@@ -107,7 +110,6 @@ body{
 .todo-row-clicked{
   background-color: rgba(36, 110, 36, 0.534);
   color: white;
-  grid-gap: 16px;
 
 }
 
