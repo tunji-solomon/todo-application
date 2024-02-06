@@ -13,14 +13,14 @@ function renderTodoList(){
     const date = todoObject.date;
     chck = i;
     const html = `
-    <div class='todo-row ${name}'>
+    <div class='todo-row ${name + i}'>
     <div class='todo-name'>
       ${name}
     </div>
     <div>
       ${date}
     </div>
-    <button class='todo-check-btn ${name} ${i}'  onclick='
+    <button class='todo-check-btn ${name + i} ${i}'  onclick='
     renderTodoList();
     '>Check</button>
     <button class= 'todo-delete-btn ${name} ${i}' onclick='
@@ -121,7 +121,7 @@ function todoChecked(value){
   for(let i = 0; i < todoList.length; i ++ ){
     if(value === i){
       document.querySelectorAll(`.todo-row`).forEach((element) => {
-        if(element.classList.contains((todoList[i].name))){
+        if(element.classList.contains((todoList[i].name + i))){
           let myElem = element;
           if(myElem.classList.contains(backColor)){
             myElem.classList.remove(backColor)
@@ -132,7 +132,7 @@ function todoChecked(value){
         };})
 
         document.querySelectorAll(`.todo-check-btn`).forEach((element) => {
-          if(element.classList.contains((todoList[i].name))){
+          if(element.classList.contains((todoList[i].name + i))){
             let myElem = element;
             if(myElem.classList.contains(btnElement)){
               myElem.classList.remove(btnElement);
