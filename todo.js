@@ -185,16 +185,31 @@ function buttonColor(){
 function deleteTodo(id){
   for(let i = 0; i < todoList.length; i ++ ){
     if(id === i){
-      let check = confirm(`Do you want to delete ${todoList[i].name} from todo list.` );
-      if(check){
-        todoList.splice(todoList[i], 1);
-        renderTodoList()
-        console.log('deleted');
-        console.log(todoList);
+      const popUpVisible = 'pop-up-container-visible';
+      const popUpMessage = document.querySelector('.pop-up-message');
+      const popUp = document.querySelector('.pop-up-container-hidden');
+      const popUpButtonYes = document.querySelector('.pop-up-button');
+      const popUpButtonNo = document.querySelector('.pop-up-button-no');
+      if(popUp.classList.contains(popUpVisible)){
+        false;
+      }else{
+        popUp.classList.add('pop-up-container-visible');
+        popUpMessage.innerHTML = `Do you want to delete ${todoList[i].name} from todo list`;
+        popUpButtonYes.onclick = () =>{
+          todoList.splice(i,1);
+          popUp.classList.remove(popUpVisible)
+          renderTodoList();
+        };
+        popUpButtonNo.onclick = () => {
+          popUp.classList.remove(popUpVisible);
+        };
+      
+        renderTodoList();
       }
-    }
+
+      };
+    };
   }
-}
 
 function showName(i){
   console.log(i);
@@ -209,6 +224,17 @@ function todoBtn(v){
           i++;
         }  
 }
+
+function btnPopUp(i) {
+  const popUp = document.querySelector('.pop-up-container-hidden');
+  const popVisible = 'pop-up-container-visible';
+  const removeVisible = popUp.classList.remove(popVisible);
+
+
+
+}
+
+
 
 
 

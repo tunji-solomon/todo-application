@@ -137,13 +137,17 @@ body{
   display: block;
   visibility: hidden;
   grid-template-columns: 1fr;
-  padding: 10px;
-  background-color: white;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.918);
   border-radius: 10px;
   position: absolute;
   width: fit-content;
+  max-width: 300px;
+  min-width: 100px;
   top: 200px;
-  left: 300px;
+  left: 100px;
+  text-align: center;
+  border: 0.5px solid grey;
 
   
 }
@@ -158,17 +162,18 @@ body{
 .pop-up-message{
   font-family: Arial, Helvetica, sans-serif;
   color: BLACK;
+  font-weight: bold;
   font-size: 15px;
   
 }
 .pop-up-button{
   font-family: Arial, Helvetica, sans-serif;
   font-size: small;
-  border: none;
   background-color: grey;
   color: white;
   border-radius: 10px;
   padding: 5px 10px;
+  border: none;
 }
 
 
