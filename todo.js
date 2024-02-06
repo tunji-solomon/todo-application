@@ -6,10 +6,12 @@ renderTodoList();
 // function to render the list to html
 function renderTodoList(){
   let todoHtml = '';
+  let chck;
   for(let i = 0;i < todoList.length; i++){
     const todoObject = todoList[i];
     const name =todoObject.name;
     const date = todoObject.date;
+    chck = i;
     const html = `
     <div class='todo-row ${name}'>
     <div class='todo-name'>
@@ -18,10 +20,16 @@ function renderTodoList(){
     <div>
       ${date}
     </div>
-    <button class='todo-delete-btn' onclick='
-    todoList.splice(${i}, 1);
+    <button class='todo-check-btn ${name} ${i}'  onclick='
     renderTodoList();
-    '>Delete</button>
+    '>Check</button>
+    <button class= 'todo-delete-btn ${name} ${i}' onclick='
+    deleteTodo(${i});
+    renderTodoList();
+    '>
+    Delete
+    </button>
+
     </div>
     `;
 
@@ -33,8 +41,37 @@ function renderTodoList(){
     document.querySelector('.todo-list-container').innerHTML = `<p class = 'todo-empty-message'> No todo yet... </p>`;
 
   }
+
+  document.querySelectorAll(`.todo-check-btn`).forEach((element) => {
+    for(let i = 0; i < todoList.length; i ++){
+      if(element.classList.contains((i))){
+        let myElem = element;
+        myElem.onclick = () => {
+          todoChecked(i);
+
+        }
+      }
+    }
+;})
+
+
+// document.querySelectorAll(`.todo-delete-btn`).forEach((element) => {
+//   for(let i = 0; i < todoList.length; i ++){
+//     if(element.classList.contains((i))){
+//       let myElem = element;
+//       myElem.onclick = () => {
+//         deleteTodo(i);
+
+//       }
+//     }
+//   }
+// ;})
+
+
   backgroundColor();
   buttonColor();
+
+
   localStorage.setItem('my_todo_list', JSON.stringify(todoList));
 
 
@@ -78,12 +115,40 @@ document.body.addEventListener('keydown', (event) => {
   }
 })
 
-function todoChecked(name){
-  document.querySelectorAll(`.todo-row`).forEach((element) => {
-    if(element.classList.contains(String(name))){
-      element.classList.add('todo-row-checked')
+function todoChecked(value){
+  let btnElement = 'todo-checked';
+  let backColor = 'todo-row-clicked'
+  for(let i = 0; i < todoList.length; i ++ ){
+    if(value === i){
+      document.querySelectorAll(`.todo-row`).forEach((element) => {
+        if(element.classList.contains((todoList[i].name))){
+          let myElem = element;
+          if(myElem.classList.contains(backColor)){
+            myElem.classList.remove(backColor)
+          }else{
+            myElem.classList.add(backColor);
+            console.log('checked');
+          };
+        };})
+
+        document.querySelectorAll(`.todo-check-btn`).forEach((element) => {
+          if(element.classList.contains((todoList[i].name))){
+            let myElem = element;
+            if(myElem.classList.contains(btnElement)){
+              myElem.classList.remove(btnElement);
+              myElem.innerHTML = 'Check'
+            }else{
+              myElem.classList.add(btnElement);
+              console.log(myElem);
+              myElem.innerHTML = 'Checked';
+            };
+            }
+          ;})
+        
+      
     }
-})}
+  }};
+
 
 
 function backgroundColor(){
@@ -117,7 +182,33 @@ function buttonColor(){
 )}
 }
 
+function deleteTodo(id){
+  for(let i = 0; i < todoList.length; i ++ ){
+    if(id === i){
+      let check = confirm(`Do you want to delete ${todoList[i].name} from todo list.` );
+      if(check){
+        todoList.splice(todoList[i], 1);
+        renderTodoList()
+        console.log('deleted');
+        console.log(todoList);
+      }
+    }
+  }
+}
 
+function showName(i){
+  console.log(i);
+
+}
+
+function todoBtn(v){
+  console.log(v);
+  let i = 0;
+  while(i < todoList.length){
+    console.log('yes',i)
+          i++;
+        }  
+}
 
 
 

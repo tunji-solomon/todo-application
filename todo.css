@@ -5,7 +5,8 @@ body{
 .todo-container{
   display: flex;
   flex-direction: column;
-  max-width: 650px;
+  max-width: fit-content;
+  position: relative;
 
 }
 
@@ -27,7 +28,8 @@ body{
 }
 
 .todo-add-btn,
-.todo-delete-btn{
+.todo-delete-btn,
+.todo-check-btn{
   background-color: rgb(71, 152, 244);
   color: white;
   box-shadow: none;
@@ -35,14 +37,23 @@ body{
   border: none;
   padding: 11px;
   transition: opacity 0.25s;
+  cursor: pointer;
+
+}
+
+
+.todo-check-btn{
+  margin-left: 0;
 
 }
 .todo-add-btn:hover,
-.todo-delete-btn:hover{
+.todo-delete-btn:hover,
+.todo-check-btn:hover{
   opacity: 0.8;
 }
 .todo-add-btn:active,
-.todo-delete-btn:active{
+.todo-delete-btn:active,
+.todo-check-btn:active{
   opacity: 0.6;
 }
 .todo-list-container,
@@ -59,7 +70,7 @@ body{
 }
 .todo-row{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 90px 90px;
   font-size: 15px;
   grid-gap: 20px;
   align-items: center;
@@ -69,34 +80,44 @@ body{
 
 }
 
+.todo-check-btn,
+.todo-delete-btn{
+  border-radius: 5px;
+  min-width: 50px;
+}
+
 .todo-row-odd{
-  background-color: rgb(219, 208, 208)
+  background-color: rgb(219, 208, 208);
 }
 .todo-row-even{
   background-color: pink;
 }
 
-
-.todo-row-checked{
-  background-color: rgb(34, 100, 34);
+.todo-row-clicked{
+  background-color: rgba(36, 110, 36, 0.534);
   color: white;
 }
+
 .todo-date{
   max-width: 200px;
   min-width: 20px;
+  margin-left: 50px;
+  margin-right: 70px;
 
 }
 .todo-delete-btn-odd,
 .todo-delete-btn-even{
   background-color: rgb(246, 82, 82);
   border-radius: 5px;
-  max-width: 200px;
-  min-width: 140px;
 
 }
 .todo-delete-btn-odd{
   background-color: grey;
 
+}
+
+.todo-checked{
+  background-color: green;
 }
 .todo-name-input{
   margin-left: 10px;
@@ -111,5 +132,45 @@ body{
   font-size: 25px;
   font-weight: bold;
 }
+.pop-up-container-hidden,
+.pop-up-container-visible{
+  display: block;
+  visibility: hidden;
+  grid-template-columns: 1fr;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  position: absolute;
+  width: fit-content;
+  top: 200px;
+  left: 300px;
+
+  
+}
+
+.pop-up-container-visible{
+  visibility: visible;
+}
+.pop-up-button-container{
+  display: block;
+  grid-template-columns: 1fr 1fr;
+}
+.pop-up-message{
+  font-family: Arial, Helvetica, sans-serif;
+  color: BLACK;
+  font-size: 15px;
+  
+}
+.pop-up-button{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
+  border: none;
+  background-color: grey;
+  color: white;
+  border-radius: 10px;
+  padding: 5px 10px;
+}
+
+
 
 
