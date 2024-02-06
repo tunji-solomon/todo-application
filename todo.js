@@ -6,12 +6,10 @@ renderTodoList();
 // function to render the list to html
 function renderTodoList(){
   let todoHtml = '';
-  let chck;
   for(let i = 0;i < todoList.length; i++){
     const todoObject = todoList[i];
     const name =todoObject.name;
     const date = todoObject.date;
-    chck = i;
     const html = `
     <div class='todo-row ${name + i}'>
     <div class='todo-name'>
@@ -127,7 +125,6 @@ function todoChecked(value){
             myElem.classList.remove(backColor)
           }else{
             myElem.classList.add(backColor);
-            console.log('checked');
           };
         };})
 
@@ -139,7 +136,6 @@ function todoChecked(value){
               myElem.innerHTML = 'Check'
             }else{
               myElem.classList.add(btnElement);
-              console.log(myElem);
               myElem.innerHTML = 'Checked';
             };
             }
@@ -211,28 +207,6 @@ function deleteTodo(id){
     };
   }
 
-function showName(i){
-  console.log(i);
-
-}
-
-function todoBtn(v){
-  console.log(v);
-  let i = 0;
-  while(i < todoList.length){
-    console.log('yes',i)
-          i++;
-        }  
-}
-
-function btnPopUp(i) {
-  const popUp = document.querySelector('.pop-up-container-hidden');
-  const popVisible = 'pop-up-container-visible';
-  const removeVisible = popUp.classList.remove(popVisible);
-
-
-
-}
 
 
 
