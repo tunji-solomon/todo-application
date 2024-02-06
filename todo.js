@@ -18,6 +18,7 @@ function renderTodoList(){
     <div>
       ${date}
     </div>
+    <div class='btn-container'>
     <button class='todo-check-btn ${name + i} ${i}'  onclick='
     renderTodoList();
     '>Check</button>
@@ -27,6 +28,7 @@ function renderTodoList(){
     '>
     Delete
     </button>
+    </div>
 
     </div>
     `;

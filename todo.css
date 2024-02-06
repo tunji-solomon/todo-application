@@ -4,8 +4,9 @@ body{
 }
 .todo-container{
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  max-width: fit-content;
   position: relative;
 
 }
@@ -15,12 +16,19 @@ body{
   text-align: center;
 }
 
+.fields-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
 
 .todo-name-input,
 .todo-date-input,
 .todo-add-btn{
   padding: 10px;
-  width: 200px;
+  min-width: 100px;
   font-size: 21;
   border: 1px solid whitesmoke;
   border-radius: 5px;
@@ -56,21 +64,16 @@ body{
 .todo-check-btn:active{
   opacity: 0.6;
 }
-.todo-list-container,
-.fields-container{
+.todo-list-container{
   display: flex;
-  max-width: 650px;
   min-width: 350px;
   flex-direction: column;
 }
 
-.fields-container{
-  margin-bottom: 50px;
-  flex-direction: row;
-}
 .todo-row{
   display: grid;
-  grid-template-columns: 1fr 1fr 90px 90px;
+  flex: 1;
+  grid-template-columns: 1fr 1fr 1fr;
   font-size: 15px;
   grid-gap: 20px;
   align-items: center;
@@ -79,11 +82,18 @@ body{
   border-radius: 5px;
 
 }
+.btn-container{
+  display: flex;
+  flex-direction: row;
+
+}
 
 .todo-check-btn,
 .todo-delete-btn{
+  margin-left: 10px;
   border-radius: 5px;
-  min-width: 50px;
+  min-width: 75px;
+
 }
 
 .todo-row-odd{
@@ -96,12 +106,13 @@ body{
 .todo-row-clicked{
   background-color: rgba(36, 110, 36, 0.534);
   color: white;
+  grid-gap: 16px;
+
 }
 
 .todo-date{
   max-width: 200px;
   min-width: 20px;
-  margin-left: 50px;
   margin-right: 70px;
 
 }
@@ -125,7 +136,6 @@ body{
 
 .todo-name{
   font-weight: bold;
-  width: 170px;
   margin-left: 10px;
 }
 .todo-empty-message{
@@ -145,7 +155,6 @@ body{
   max-width: 300px;
   min-width: 100px;
   top: 200px;
-  left: 100px;
   text-align: center;
   box-shadow: 0px 2px 100px rgba(150, 150, 150, 0.851);
 
